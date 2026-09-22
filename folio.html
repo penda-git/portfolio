@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penda Diallo | Portfolio</title>
+  <meta name="description" content="Portfolio de Penda Diallo, étudiante en Informatique : projets web, compétences et parcours.">
+
+  <!--
+    ============ À FAIRE AVANT DE METTRE EN LIGNE ============
+    1. Remplacer les liens "REMPLACE-PAR-..." dans la section Projets.
+    2. Mettre tes PDF dans le dossier assets/ :
+         assets/CV_Penda_Diallo_FR.pdf
+         assets/CV_Penda_Diallo_EN.pdf
+    3. Mettre une capture d'écran par projet dans assets/ :
+         assets/terrafisc.png, assets/tropical.png, assets/samayon.png, assets/tokora.png
+       (tant qu'elles n'existent pas, un cadre "capture à ajouter" s'affiche)
+    4. Vérifier ton numéro de téléphone et tes liens dans la section Contact.
+    ==========================================================
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ EN-TÊTE ============ -->
+  <header class="topbar">
+    <a class="brand" href="#top">Penda Diallo</a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#projets" data-i18n="nav_projects">Projets</a>
+      <a href="#parcours" data-i18n="nav_about">Parcours</a>
+      <a href="#competences" data-i18n="nav_skills">Compétences</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Langue">
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeBtn" aria-label="Changer le thème">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ ACCUEIL ============ -->
+    <section class="hero">
+      <h1 class="hero-name">Penda<br>Diallo</h1>
+      <p class="hero-role" data-i18n="hero_role">Étudiante en Informatique</p>
+      <p class="hero-intro" data-i18n="hero_intro">
+        Je développe des applications web pour la santé, l'administration et la sécurité routière.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" id="cvLink" href="assets/CV_Penda_Diallo_FR.pdf" download data-i18n="cta_cv">Télécharger mon CV</a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="cta_contact">Me contacter</a>
+      </div>
+    </section>
+
+    <!-- Bande tissée : l'élément signature du portfolio -->
+    <div class="weave" aria-hidden="true"></div>
+
+    <!-- ============ PROJETS ============ -->
+    <section class="block" id="projets">
+      <h2 class="block-title" data-i18n="projects_h">Projets</h2>
+      <div class="block-body">
+
+        <!-- Projet 1 : TERRAFISC -->
+        <article class="project">
+          <div class="shot"><img src="assets/terrafisc.png" alt="Capture d'écran de TERRAFISC"><span class="shot-empty" data-i18n="shot_empty">Capture d'écran à ajouter</span></div>
+          <h3>TERRAFISC</h3>
+          <p class="project-sub" data-i18n="p1_sub">Système de gestion des activités des Impôts et Domaines</p>
+          <p data-i18n="p1_desc">Cheffe de groupe. Application qui permet d'assigner des tâches, de suivre les activités, de faire des signalements et d'envoyer des notifications entre agents et responsables. Projet du cours de Bases de Données, évalué à 17/20.</p>
+          <ul class="tags"><li>Python</li><li>HTML</li><li>CSS</li><li>SQLite</li></ul>
+          <div class="links">
+            <!-- REMPLACE par le lien vers l'application TERRAFISC en ligne -->
+            <a href="https://tropical-beug.onrender.com" target="_blank" rel="noopener" data-i18n="link_app">Voir l'application</a>
+          </div>
+        </article>
+
+        <!-- Projet 2 : LE TROPICAL -->
+        <article class="project">
+          <div class="shot"><img src="assets/tropical.png" alt="Capture d'écran de LE TROPICAL"><span class="shot-empty" data-i18n="shot_empty">Capture d'écran à ajouter</span></div>
+          <h3>LE TROPICAL</h3>
+          <p class="project-sub" data-i18n="p2_sub">Système de gestion hospitalière</p>
+          <p data-i18n="p2_desc">Cheffe de groupe. Application avec cinq rôles (administrateur, réceptionniste, médecin, patient, pharmacien) : dossiers patients, rendez-vous, consultations, téléconsultations et disponibilités des médecins.</p>
+          <ul class="tags"><li>Python</li><li>HTML</li><li>CSS</li><li>SQLite</li></ul>
+          <div class="links">
+            <!-- REMPLACE par le lien du site hébergé sur Render -->
+            <a href="https://kebe1502.github.io/terrafisc/kebe1502.github.io" target="_blank" rel="noopener" data-i18n="link_app">Voir l'application</a>
+          </div>
+        </article>
+
+        <!-- Projet 3 : SAMA YON (en cours, pas encore de liens) -->
+        <article class="project">
+          <div class="shot"><img src="assets/samayon.png" alt="Aperçu de SAMA YON"><span class="shot-empty" data-i18n="shot_empty">Capture d'écran à ajouter</span></div>
+          <h3>SAMA YON <span class="badge" data-i18n="badge_wip">en cours</span></h3>
+          <p class="project-sub" data-i18n="p3_sub">Suivi des infractions routières</p>
+          <p data-i18n="p3_desc">Projet personnel. Plateforme qui améliore la transparence et la coordination entre les postes de contrôle routiers : suivi des infractions et des amendes, partage d'informations en temps réel, accès au code de la route. Elle vise à réduire les erreurs administratives et à lutter contre la corruption grâce à une meilleure traçabilité.</p>
+          <ul class="tags"><li>Projet personnel</li></ul>
+          <!-- Ajoute ici un bloc <div class="links"> quand le projet sera prêt -->
+        </article>
+
+        <!-- Projet 4 : TOKORA (en cours, pas encore de liens) -->
+        <article class="project">
+          <div class="shot"><img src="assets/tokora.png" alt="Aperçu de TOKORA"><span class="shot-empty" data-i18n="shot_empty">Capture d'écran à ajouter</span></div>
+          <h3>TOKORA <span class="badge" data-i18n="badge_wip">en cours</span></h3>
+          <p class="project-sub" data-i18n="p4_sub">Plateforme collaborative d'assistance médicale intelligente</p>
+          <p data-i18n="p4_desc">Plateforme pour les professionnels de santé et les patients : les médecins échangent sur des cas complexes, les patients reçoivent des informations adaptées et des conseils de prévention, et un assistant intelligent analyse les antécédents médicaux et simule l'impact d'un traitement.</p>
+          <ul class="tags"><li>Projet personnel</li></ul>
+          <!-- Ajoute ici un bloc <div class="links"> quand le projet sera prêt -->
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ PARCOURS ============ -->
+    <section class="block" id="parcours">
+      <h2 class="block-title" data-i18n="about_h">Parcours</h2>
+      <div class="block-body">
+        <p class="lead" data-i18n="about_p1">
+          Étudiante en Informatique à l'Université Iba Der Thiam de Thiès (UFR SET), je m'intéresse au développement web et aux nouvelles technologies. Sérieuse, motivée et curieuse, j'aime apprendre vite et relever des défis.
+        </p>
+        <p data-i18n="about_p2">
+          Je m'intéresse aussi à la cybersécurité, au slam et à la manière dont la technologie et la culture se rencontrent.
+        </p>
+
+        <ul class="story">
+          <li>
+            <strong data-i18n="s1_t">Présidente de la Commission Communication et Relations Extérieures</strong>
+            <span data-i18n="s1_d">AE-SET, Amicale des Étudiants de l'UFR SET. Élue à l'unanimité.</span>
+          </li>
+          <li>
+            <strong data-i18n="s2_t">Déléguée de classe</strong>
+            <span data-i18n="s2_d">Réélue par mes camarades.</span>
+          </li>
+          <li>
+            <strong data-i18n="s3_t">Cheffe de groupe sur mes projets académiques</strong>
+            <span data-i18n="s3_d">TERRAFISC et LE TROPICAL : organiser l'équipe, répartir le travail, livrer.</span>
+          </li>
+          <li>
+            <strong data-i18n="s4_t">Fondatrice d'une entreprise de pâtisserie</strong>
+            <span data-i18n="s4_d">J'ai monté et géré mon activité moi-même.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ COMPÉTENCES ============ -->
+    <section class="block" id="competences">
+      <h2 class="block-title" data-i18n="skills_h">Compétences</h2>
+      <div class="block-body">
+        <h3 class="mini" data-i18n="skills_tech">Technologies</h3>
+        <ul class="tags big">
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>C</li><li>SQLite</li>
+        </ul>
+
+        <h3 class="mini" data-i18n="skills_lang">Langues</h3>
+        <ul class="tags big">
+          <li data-i18n="l_fr">Français</li>
+          <li data-i18n="l_en">Anglais</li>
+          <li data-i18n="l_es">Espagnol</li>
+          <li data-i18n="l_pu">Poular</li>
+          <li>Wolof</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="block" id="contact">
+      <h2 class="block-title" data-i18n="contact_h">Contact</h2>
+      <div class="block-body">
+        <p class="lead" data-i18n="contact_p">Un stage, un projet, une question ? Écris-moi, je réponds vite.</p>
+
+        <p class="mail">
+          <a href="mailto:dialloramatapenda@gmail.com" id="mailLink">dialloramatapenda@gmail.com</a>
+          <button type="button" class="btn btn-ghost small" id="copyBtn" data-i18n="copy_email">Copier l'email</button>
+        </p>
+
+        <div class="links">
+          <a href="https://www.linkedin.com/in/penda-diallo-9526163b2" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/penda-git" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="weave weave-thin" aria-hidden="true"></div>
+    <p>© <span id="year">2026</span> Penda Diallo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

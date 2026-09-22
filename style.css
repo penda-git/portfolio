@@ -1,0 +1,375 @@
+/* =========================================================
+   PORTFOLIO DE PENDA DIALLO : style.css
+   1. Couleurs et variables
+   2. Base
+   3. En-tête
+   4. Accueil
+   5. Bande tissée (l'élément signature)
+   6. Sections
+   7. Projets
+   8. Parcours, compétences, contact
+   9. Boutons
+   10. Responsive et accessibilité
+   ========================================================= */
+
+
+/* ---------- 1. Couleurs et variables ---------- */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --ink: #12203a;
+  --muted: #56637a;
+  --line: #d3dae6;
+  --indigo: #1f4e79;
+  --gold: #e9a820;
+  --focus: #1f4e79;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+
+  --page: 1040px;
+  --gutter: clamp(18px, 5vw, 48px);
+}
+
+/* Thème sombre automatique (selon le téléphone/ordinateur) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1524;
+    --surface: #152036;
+    --ink: #e8edf6;
+    --muted: #9aa8bf;
+    --line: #26344d;
+    --indigo: #5b8fc4;
+    --focus: #8db8e8;
+  }
+}
+
+/* Thème choisi avec le bouton */
+:root[data-theme="dark"] {
+  --bg: #0d1524;
+  --surface: #152036;
+  --ink: #e8edf6;
+  --muted: #9aa8bf;
+  --line: #26344d;
+  --indigo: #5b8fc4;
+  --focus: #8db8e8;
+}
+
+
+/* ---------- 2. Base ---------- */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  margin: 0;
+}
+
+p { margin: 0 0 1rem; max-width: 66ch; }
+ul { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+a { color: var(--indigo); }
+
+
+/* ---------- 3. En-tête ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px var(--gutter);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav { display: none; gap: 24px; }
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--ink); }
+.nav a.active { color: var(--ink); border-bottom-color: var(--gold); }
+
+.tools { display: flex; align-items: center; gap: 8px; }
+
+.lang {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.lang-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.lang-btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+
+.theme-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+
+/* ---------- 4. Accueil ---------- */
+.hero {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: clamp(48px, 9vw, 110px) var(--gutter) clamp(40px, 6vw, 72px);
+}
+
+.hero-name {
+  font-weight: 800;
+  font-size: clamp(3.4rem, 13vw, 8rem);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.hero-role {
+  margin: 1.4rem 0 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  color: var(--indigo);
+}
+
+.hero-intro {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 48ch;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1.6rem; }
+
+
+/* ---------- 5. Bande tissée ---------- */
+/* Motif en zigzag, inspiré des tissages : une seule touche d'or dans toute la page */
+.weave {
+  height: 28px;
+  background-color: var(--indigo);
+  background-image:
+    linear-gradient(135deg, var(--gold) 25%, transparent 25%),
+    linear-gradient(225deg, var(--gold) 25%, transparent 25%),
+    linear-gradient(315deg, var(--gold) 25%, transparent 25%),
+    linear-gradient(45deg,  var(--gold) 25%, transparent 25%);
+  background-size: 28px 28px;
+  background-position: -14px 0, -14px 0, 0 0, 0 0;
+  animation: unroll 1.1s cubic-bezier(.2, .7, .2, 1) both;
+}
+.weave-thin { height: 12px; background-size: 12px 12px; background-position: -6px 0, -6px 0, 0 0, 0 0; animation: none; }
+
+/* La bande se déroule une seule fois à l'ouverture de la page */
+@keyframes unroll {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+
+/* ---------- 6. Sections ---------- */
+.block {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+.block:last-of-type { border-bottom: 0; }
+
+.block-title {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.6rem;
+}
+
+/* Sur grand écran : titre à gauche, contenu à droite */
+@media (min-width: 860px) {
+  .block {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 48px;
+  }
+  .block-title { position: sticky; top: 92px; align-self: start; margin-bottom: 0; }
+  .nav { display: flex; }
+}
+
+
+/* ---------- 7. Projets ---------- */
+.project { padding: 0 0 2.4rem; margin-bottom: 2.4rem; border-bottom: 1px solid var(--line); }
+.project:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+
+.project h3 {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 1.1rem;
+}
+
+.project-sub { color: var(--muted); font-style: italic; margin: 0.2rem 0 0.8rem; }
+
+.shot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Cadre affiché quand la capture d'écran n'existe pas encore */
+.shot-empty {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border: 2px dashed var(--line);
+  border-radius: 6px;
+  margin: 10px;
+}
+.shot.empty img { display: none; }
+.shot.empty .shot-empty { display: flex; }
+
+.badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border: 1px solid var(--indigo);
+  border-radius: 999px;
+  color: var(--indigo);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.4rem 0 1rem; }
+.tags li {
+  padding: 3px 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+.tags.big li { font-size: 1rem; padding: 6px 16px; }
+
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.links a {
+  padding: 8px 16px;
+  border: 1.5px solid var(--indigo);
+  border-radius: 6px;
+  color: var(--indigo);
+  font-weight: 600;
+  text-decoration: none;
+}
+.links a:hover { background: var(--indigo); color: var(--bg); }
+
+
+/* ---------- 8. Parcours, compétences, contact ---------- */
+.lead { font-size: 1.2rem; }
+
+.story { margin-top: 2rem; border-left: 3px solid var(--indigo); }
+.story li { padding: 0 0 1.4rem 20px; }
+.story li:last-child { padding-bottom: 0; }
+.story strong { display: block; font-weight: 600; }
+.story span { color: var(--muted); }
+
+.mini {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+.tags.big { margin-bottom: 1.6rem; }
+
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 1.4rem; }
+.mail a {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 3.6vw, 1.7rem);
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.footer { padding-bottom: 28px; text-align: center; color: var(--muted); font-size: 0.9rem; }
+.footer p { margin: 18px auto 0; }
+
+
+/* ---------- 9. Boutons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 6px;
+  border: 1.5px solid var(--ink);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary:hover { opacity: 0.88; }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+.btn.small { padding: 6px 14px; font-size: 0.9rem; }
+
+
+/* ---------- 10. Responsive et accessibilité ---------- */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  body { font-size: 1rem; }
+  .btn { flex: 1 1 100%; text-align: center; }
+}
+
+/* Si la personne a désactivé les animations sur son appareil */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .weave { animation: none; }
+}
